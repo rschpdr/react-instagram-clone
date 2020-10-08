@@ -16,42 +16,28 @@ function NewPost() {
     setFormState(tempState);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    try {
+      const result = await axios.post("http://localhost:4000/posts", formState);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="username">User Name</label>
-        <input
-          type="text"
-          className="form-control"
-          id="userName"
-          onChange={handleInput}
-          value={formState.userName}
-        />
+        <input type="text" className="form-control" id="userName" onChange={handleInput} value={formState.userName} />
       </div>
       <div className="form-group">
         <label htmlFor="postlink">Link</label>
-        <input
-          type="text"
-          className="form-control"
-          id="postlink"
-          onChange={handleInput}
-          value={formState.postlink}
-        />
+        <input type="text" className="form-control" id="postlink" onChange={handleInput} value={formState.postlink} />
       </div>
       <div className="form-group">
         <label htmlFor="postdescription">Description</label>
-        <input
-          type="text"
-          className="form-control"
-          id="description"
-          onChange={handleInput}
-          value={formState.description}
-        />
+        <input type="text" className="form-control" id="description" onChange={handleInput} value={formState.description} />
       </div>
       <button type="submit" className="btn btn-primary">
         Submit

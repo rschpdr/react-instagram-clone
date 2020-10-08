@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/" component={Timeline}></Route>
+          <Route exact path="/" component={Timeline}></Route>
           <Route path="/new-post" component={NewPost}></Route>
         </Switch>
         <Footer />
