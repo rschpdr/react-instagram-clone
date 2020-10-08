@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import Timeline from "./Timeline";
+import NewPost from "./NewPost"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Timeline />
+          {/* <Timeline /> */}
+          <Route path="/new-post" component={NewPost}></Route>
         </Switch>
         <Footer />
       </BrowserRouter>
