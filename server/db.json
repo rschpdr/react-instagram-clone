@@ -1,4 +1,11 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "userName": "arua",
+      "postlink": "https://www.clubeparacachorros.com.br/wp-content/uploads/2018/07/cachorros-mais-fofos-do-mundo-lulu-da-pomerania-filhote.jpg",
+      "description": "Cachorrinho fofinho",
+      "id": 1
+    }
+  ],
   "comments": []
 }
