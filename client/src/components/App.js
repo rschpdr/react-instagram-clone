@@ -1,14 +1,20 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Footer from "./Footer";
 import Header from "./Header";
 import Timeline from "./Timeline";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
     <div>
-      <Header />
-      <Timeline />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Timeline />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
