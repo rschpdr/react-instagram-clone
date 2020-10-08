@@ -1,24 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function NewPost() {
+  const [formState, setFormState] = useState({
+    userName: "",
+    postlink: "",
+    description: "",
+  });
+
+  const handleInput = (event) => {
+    const tempState = { ...formState };
+    const field = event.currentTarget.id;
+    const fieldValue = event.currentTarget.value;
+    tempState[field] = fieldValue;
+    setFormState(tempState);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formState);
+  };
+
   return (
-    <form>
-      <div class="form-group">
-        <label htmlFor="exampleInputEmail1">Email address</label>
-        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label htmlFor="username">User Name</label>
+        <input
+          type="text"
+          className="form-control"
+          id="userName"
+          onChange={handleInput}
+          value={formState.userName}
+        />
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputPassword1">Password</label>
-        <input type="password" className="form-control" id="exampleInputPassword1" />
+        <label htmlFor="postlink">Link</label>
+        <input
+          type="text"
+          className="form-control"
+          id="postlink"
+          onChange={handleInput}
+          value={formState.postlink}
+        />
       </div>
-      <div className="form-group form-check">
-        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+      <div className="form-group">
+        <label htmlFor="postdescription">Description</label>
+        <input
+          type="text"
+          className="form-control"
+          id="description"
+          onChange={handleInput}
+          value={formState.description}
+        />
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
     </form>
-  )
+  );
 }
 
 export default NewPost;
